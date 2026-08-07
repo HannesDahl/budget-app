@@ -6,3 +6,22 @@ Content-Type: application/json
   "source": "CSN",
   "month": "2026-08-01"
 }
+
+###
+
+GET http://localhost:3000/api/income
+
+###
+
+POST http://localhost:3000/api/expenses
+Content-Type: application/json
+
+{
+  "amount": 8500,
+  "category": "Hyra",
+  "month": "2026-08-01"
+}
+
+###
+
+GET http://localhost:3000/api/expenses

@@ -1,3 +1,4 @@
+/// Pool öppnar flertalet anslutningar samtidigt, minskar kostnaden som hade blivit med client. 
 import { Pool } from "pg";
 import "dotenv/config";
 import pg from "pg";
