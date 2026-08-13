@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+const CATEGORIES = {
+  "Utgift": ["Hyra", "Mat", "Transport", "Nöje", "Faktura", "Övrigt"],
+  "Sparande": ["Buffert", "Sparkonto", "ISK"],
+};
+
 type Expense = {
   id: number;
   amount: string;
@@ -73,11 +78,18 @@ export default function ExpensesSection() {
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Belopp"
         />
-        <input
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="Kategori (Hyra, Mat...)"
-        />
+        
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="">Välj kategori</option>
+          {Object.entries(CATEGORIES).map(([group, items]) => (
+            <optgroup key={group} label={group}>
+              {items.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+        
         <input
           type="month"
           value={month.slice(0, 7)}

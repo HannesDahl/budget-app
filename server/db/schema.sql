@@ -22,6 +22,7 @@ CREATE TABLE expenses (
   category VARCHAR(100) NOT NULL,
   description VARCHAR(255),
   month DATE NOT NULL,
+  is_saving BOOLEAN NOT NULL DEFAULT FALSE,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 

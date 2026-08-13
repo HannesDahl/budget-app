@@ -29,3 +29,7 @@ GET http://localhost:3000/api/expenses
 ###
 
 GET http://localhost:3000/api/summary?month=2026-08-01
+
+###
+
+GET http://localhost:3000/api/summary?month=2026-08-01

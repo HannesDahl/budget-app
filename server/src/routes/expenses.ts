@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { pool } from "../db.js";
+import { EXPENSE_CATEGORIES } from "../constants.js";
 
 const router = Router();
 
@@ -23,11 +24,17 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "amount, category och month krävs" });
   }
 
+  if (!(category in EXPENSE_CATEGORIES)) {
+    return res.status(400).json({ error: "Okänd kategori" });
+  }
+
+  const isSaving = EXPENSE_CATEGORIES[category];
+
   try {
     const result = await pool.query(
-      `INSERT INTO expenses (user_id, amount, category, description, month)
-       VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-      [1, amount, category, description ?? null, month]
+      `INSERT INTO expenses (user_id, amount, category, description, month, is_Saving)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+      [1, amount, category, description ?? null, month, isSaving]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
