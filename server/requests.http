@@ -33,3 +33,11 @@ GET http://localhost:3000/api/summary?month=2026-08-01
 ###
 
 GET http://localhost:3000/api/summary?month=2026-08-01
+
+###
+
+GET http://localhost:3000/api/summary/range?from=2026-03-01&to=2026-09-01
+
+###
+
+GET http://localhost:3000/api/summary/categories?month=2026-08-01
