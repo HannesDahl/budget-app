@@ -127,4 +127,28 @@ router.get("/categories", async (req, res) => {
   }
 });
 
+router.get("/sources", async (req, res) => {
+  const { month } = req.query;
+
+  if (!month) {
+    return res.status(400).json({ error: "month krävs" });
+  }
+
+  try {
+    const result = await pool.query(
+      `SELECT source, SUM(amount) AS total
+       FROM income
+       WHERE user_id = $1 AND month = $2
+       GROUP BY source
+       ORDER BY total DESC`,
+      [1, month]
+    );
+
+    res.json(result.rows.map((r) => ({ source: r.source, total: Number(r.total) })));
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Database error" });
+  }
+});
+
 export default router;

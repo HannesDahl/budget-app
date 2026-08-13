@@ -1,10 +1,11 @@
 import IncomeSection from "./components/IncomeSection";
 import ExpensesSection from "./components/ExpensesSection";
+import Overview from "./components/Overview";
 
 export default function App() {
   return (
     <div>
-      <h1>Budget</h1>
+      <Overview />
       <IncomeSection />
       <ExpensesSection />
     </div>
