@@ -2,7 +2,7 @@
 
 En budgetapp jag byggde för att få ordning på min egen ekonomi. Istället för att titta på hur mycket som är kvar i slutet av månaden räknar den ut **sparkvoten** — hur stor andel av inkomsten som faktiskt gick till sparande — och visar hur den utvecklas över tid.
 
-![<img width="947" height="409" alt="Skärmbild 2026-09-01 165943" src="https://github.com/user-attachments/assets/24ebd450-ab44-4c96-a0cc-cbe22d2c1336" />]
+<img width="947" height="409" alt="Skärmbild 2026-09-01 165943" src="https://github.com/user-attachments/assets/24ebd450-ab44-4c96-a0cc-cbe22d2c1336" />
 
 ## Vad den gör
 
